@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const TrackList = ({ tracks, onDeleteTrack, onPlayTrack }) => {
+const TrackList = ({ tracks }) => {
   const navigate = useNavigate();
 
   if (!tracks || tracks.length === 0) {
@@ -10,21 +10,6 @@ const TrackList = ({ tracks, onDeleteTrack, onPlayTrack }) => {
 
   const handleEdit = (trackId) => {
     navigate(`/edit-track/${trackId}`);
-  };
-
-  const handleDelete = async (trackId) => {
-    if (window.confirm('Are you sure you want to delete this track?')) {
-      try {
-        await onDeleteTrack(trackId);
-      } catch (error) {
-        console.error('Error deleting track:', error);
-        alert('Failed to delete track. Please try again.');
-      }
-    }
-  };
-
-  const handlePlay = (track) => {
-    onPlayTrack(track);
   };
 
   return (
@@ -40,22 +25,10 @@ const TrackList = ({ tracks, onDeleteTrack, onPlayTrack }) => {
             {track.genre && <p><strong>Genre:</strong> {track.genre}</p>}
             <div className="track-actions">
               <button 
-                className="play-btn"
-                onClick={() => handlePlay(track)}
-              >
-                Play
-              </button>
-              <button 
                 className="edit-btn"
                 onClick={() => handleEdit(track._id)}
               >
                 Edit
-              </button>
-              <button 
-                className="delete-btn"
-                onClick={() => handleDelete(track._id)}
-              >
-                Delete
               </button>
             </div>
           </div>

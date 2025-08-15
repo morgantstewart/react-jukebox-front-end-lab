@@ -1,34 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import TrackList from './TrackList';
-import NowPlaying from './NowPlaying';
-import { index as fetchTracks, deleteTrack } from '../services/trackService';
+import { index as fetchTracks } from '../services/trackService';
 
 const Home = () => {
   const [tracks, setTracks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [currentTrack, setCurrentTrack] = useState(null);
   const navigate = useNavigate();
-
-  const handleDeleteTrack = async (trackId) => {
-    try {
-      await deleteTrack(trackId);
-      // Remove the deleted track from the local state
-      setTracks(tracks.filter(track => track._id !== trackId));
-      // If the deleted track was currently playing, stop it
-      if (currentTrack && currentTrack._id === trackId) {
-        setCurrentTrack(null);
-      }
-    } catch (err) {
-      console.error('Error deleting track:', err);
-      throw err;
-    }
-  };
-
-  const handlePlayTrack = (track) => {
-    setCurrentTrack(track);
-  };
 
   useEffect(() => {
     const getTracks = async () => {
@@ -65,8 +44,7 @@ const Home = () => {
       >
         Add New Track
       </button>
-      <TrackList tracks={tracks} onDeleteTrack={handleDeleteTrack} onPlayTrack={handlePlayTrack} />
-      <NowPlaying currentTrack={currentTrack} />
+      <TrackList tracks={tracks} />
     </div>
   );
 };

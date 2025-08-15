@@ -17,19 +17,4 @@ const index = async () => {
   }
 };
 
-const deleteTrack = async (trackId) => {
-  try {
-    const res = await fetch(`${BASE_URL}/${trackId}`, {
-      method: 'DELETE',
-    });
-    if (!res.ok) {
-      throw new Error(`HTTP error! status: ${res.status}`);
-    }
-    return res.json();
-  } catch (err) {
-    console.error('Error deleting track:', err);
-    throw err;
-  }
-};
-
-export { API_BASE_URL, BASE_URL, index, deleteTrack };
+export { API_BASE_URL, BASE_URL, index };
