@@ -40,3 +40,155 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Track List Styles */
+.home {
+  text-align: center;
+}
+
+.track-list {
+  margin-top: 2rem;
+}
+
+.tracks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.track-card {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: left;
+  transition: border-color 0.25s;
+}
+
+.track-card:hover {
+  border-color: #646cff;
+}
+
+.track-card h3 {
+  margin-top: 0;
+  color: #646cff;
+  font-size: 1.2em;
+}
+
+.track-card p {
+  margin: 0.5rem 0;
+  color: rgba(255, 255, 255, 0.87);
+}
+
+.track-card strong {
+  color: #888;
+}
+
+/* Add Track Button */
+.add-track-btn {
+  background-color: #646cff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.8em 1.5em;
+  font-size: 1em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.25s;
+  margin-bottom: 2rem;
+}
+
+.add-track-btn:hover {
+  background-color: #535bf2;
+}
+
+/* Track Form Styles */
+.track-form {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.track-form h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #646cff;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: rgba(255, 255, 255, 0.87);
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #333;
+  border-radius: 4px;
+  background-color: #1a1a1a;
+  color: rgba(255, 255, 255, 0.87);
+  font-size: 1rem;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #646cff;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.form-actions button {
+  padding: 0.8em 1.5em;
+  border-radius: 8px;
+  font-size: 1em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.form-actions button[type="submit"] {
+  background-color: #646cff;
+  color: white;
+  border: none;
+}
+
+.form-actions button[type="submit"]:hover:not(:disabled) {
+  background-color: #535bf2;
+}
+
+.form-actions button[type="submit"]:disabled {
+  background-color: #666;
+  cursor: not-allowed;
+}
+
+.form-actions button[type="button"] {
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.87);
+  border: 1px solid #333;
+}
+
+.form-actions button[type="button"]:hover {
+  border-color: #646cff;
+  color: #646cff;
+}
+
+.error-message {
+  background-color: #ff4444;
+  color: white;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  text-align: center;
+}

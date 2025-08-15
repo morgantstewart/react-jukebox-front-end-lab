@@ -1,28 +1,20 @@
-import { useEffect, useState } from 'react';
-import { index as fetchTracks } from './services/trackService.js';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './components/Home';
+import TrackForm from './components/TrackForm';
+import './App.css';
 
 const App = () => {
-  const [tracks, setTracks] = useState([]);
-
-  useEffect(() => {
-    const getTracks = async () => {
-      try {
-        const fetchedTracks = await fetchTracks();
-        setTracks(fetchedTracks);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    getTracks();
-  }, []);
-
-  return <h1>Hello world!</h1>;
+  return (
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/add-track" element={<TrackForm />} />
+        </Routes>
+      </div>
+    </Router>
+  );
 };
-
-
-
-
-
-
 
 export default App;
