@@ -11,6 +11,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/add-track" element={<TrackForm />} />
+          <Route path="/edit-track/:trackId" element={<TrackForm />} />
         </Routes>
       </div>
     </Router>
